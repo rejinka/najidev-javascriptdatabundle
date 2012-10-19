@@ -6,7 +6,8 @@
 
     <services>
         <service id="najidev.javascriptdata.templating.helper.javascriptdata"
-                 class="NajiDev\JavaScriptData\Templating\Helper\JavaScriptDataHelper">
+                 class="NajiDev\JavaScriptDataBundle\Templating\Helper\JavaScriptDataHelper">
+            <argument type="service" id="najidev.javascriptdata.javascriptdata" />
             <tag name="templating.helper" alias="javascript_data" />
         </service>
     </services>
