@@ -30,6 +30,17 @@ class JavaScriptDataHelper extends Helper
 		return $this->javasSriptData->toJson();
 	}
 
+	/**
+	 * A wrapper aroung JavaScriptData::set()
+	 *
+	 * @param $key
+	 * @param $value
+	 */
+	public function set($key, $value)
+	{
+		$this->javasSriptData->set($key, $value);
+	}
+
 	public function getName()
 	{
 		return 'javascript_data';
