@@ -16,7 +16,6 @@ class NajiDevJavaScriptDataExtension extends Extension
 	{
 		$loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
-		$loader->load('service.xml');
-		$loader->load('templating.xml');
+		$loader->load('services.xml');
 	}
 }

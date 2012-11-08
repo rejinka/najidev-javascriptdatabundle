@@ -9,7 +9,6 @@ use \NajiDev\JavaScriptData\JavaScriptData;
 
 class JavaScriptDataHelper extends Helper
 {
-	/** @var JavaScriptData */
 	protected $javasSriptData;
 
 	/**
@@ -18,16 +17,6 @@ class JavaScriptDataHelper extends Helper
 	public function __construct(JavaScriptData $javaScriptData)
 	{
 		$this->javasSriptData = $javaScriptData;
-	}
-
-	/**
-	 * Returns a json encoded array
-	 *
-	 * @return string
-	 */
-	public function render()
-	{
-		return $this->javasSriptData->toJson();
 	}
 
 	/**

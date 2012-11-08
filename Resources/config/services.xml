@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="najidev.javascriptdata.javascriptdata" class="NajiDev\JavaScriptData\JavaScriptData" />
+
+        <service id="najidev.javascriptdata.templating.helper.javascriptdata"
+                 class="NajiDev\JavaScriptDataBundle\Templating\Helper\JavaScriptDataHelper">
+            <argument type="service" id="najidev.javascriptdata.javascriptdata" />
+            <tag name="templating.helper" alias="javascript_data" />
+        </service>
+
+        <service id="najidev.javascriptdata.filter_response_listener"
+                 class="NajiDev\JavaScriptDataBundle\EventListener\AddContainerRequestListener">
+            <argument type="service" id="najidev.javascriptdata.javascriptdata" />
+            <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" />
+        </service>
+
+    </services>
+
+</container>
