@@ -18,6 +18,12 @@ You should consider taking one of the releases instead of "@dev".
 
 ### Load the bundle in your Kernel
 
+	$bundles = array(
+		// your current bundles
+
+		new \NajiDev\JavaScriptDataBundle\NajiDevJavaScriptDataBundle(),
+	);
+
 ## Usage
 
 The bundle creates the
@@ -38,7 +44,7 @@ helper:
 
 	$view['javascript_data']->set('my.key', 'value');
 
-When the response is rendered, your container gets automatically injected (hiddent) to the end of your body, for
+When the response is rendered, your container gets automatically injected (hidden) to the end of your body, for
 example:
 
 		...
