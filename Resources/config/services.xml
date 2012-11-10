@@ -10,13 +10,13 @@
 
         <service id="najidev.javascriptdata_bundle.templating.helper.javascriptdata"
                  class="NajiDev\JavaScriptDataBundle\Templating\Helper\JavaScriptDataHelper">
-            <argument type="service" id="najidev.javascriptdata.javascriptdata" />
+            <argument type="service" id="najidev.common.javascriptdata.container" />
             <tag name="templating.helper" alias="javascript_data" />
         </service>
 
         <service id="najidev.javascriptdata_bundle.filter_response_listener"
                  class="NajiDev\JavaScriptDataBundle\EventListener\AddContainerRequestListener">
-            <argument type="service" id="najidev.javascriptdata.javascriptdata" />
+            <argument type="service" id="najidev.common.javascriptdata.container" />
             <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" />
         </service>
 
