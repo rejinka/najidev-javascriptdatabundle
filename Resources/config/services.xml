@@ -6,15 +6,15 @@
 
     <services>
 
-        <service id="najidev.javascriptdata.javascriptdata" class="NajiDev\JavaScriptData\JavaScriptData" />
+        <service id="najidev.common.javascriptdata.container" class="NajiDev\Common\JavaScriptData\Container" />
 
-        <service id="najidev.javascriptdata.templating.helper.javascriptdata"
+        <service id="najidev.javascriptdata_bundle.templating.helper.javascriptdata"
                  class="NajiDev\JavaScriptDataBundle\Templating\Helper\JavaScriptDataHelper">
             <argument type="service" id="najidev.javascriptdata.javascriptdata" />
             <tag name="templating.helper" alias="javascript_data" />
         </service>
 
-        <service id="najidev.javascriptdata.filter_response_listener"
+        <service id="najidev.javascriptdata_bundle.filter_response_listener"
                  class="NajiDev\JavaScriptDataBundle\EventListener\AddContainerRequestListener">
             <argument type="service" id="najidev.javascriptdata.javascriptdata" />
             <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" />

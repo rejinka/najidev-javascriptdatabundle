@@ -4,14 +4,14 @@ namespace NajiDev\JavaScriptDataBundle\EventListener;
 
 use \Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
-use \NajiDev\JavaScriptData\JavaScriptData;
+use \NajiDev\Common\JavaScriptData\Container;
 
 
 class AddContainerRequestListener
 {
 	protected $data;
 
-	public function __construct(JavaScriptData $data)
+	public function __construct(Container $data)
 	{
 		$this->data = $data;
 	}
@@ -22,7 +22,7 @@ class AddContainerRequestListener
 
 		$response->setContent(str_replace(
 			'</body>',
-			'<div id="javascript_data" style="display: none">' . $this->data->toJson() . '</div></body>',
+			'<div id="javascript_data" style="display: none">' . $this->data->getTransformedData() . '</div></body>',
 			$response->getContent()
 		));
 	}

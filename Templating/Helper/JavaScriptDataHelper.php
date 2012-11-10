@@ -4,30 +4,27 @@ namespace NajiDev\JavaScriptDataBundle\Templating\Helper;
 
 use \Symfony\Component\Templating\Helper\Helper;
 
-use \NajiDev\JavaScriptData\JavaScriptData;
+use \NajiDev\Common\JavaScriptData\Container;
 
 
 class JavaScriptDataHelper extends Helper
 {
-	protected $javasSriptData;
+	protected $data;
 
-	/**
-	 * @param JavaScriptData $javaScriptData
-	 */
-	public function __construct(JavaScriptData $javaScriptData)
+	public function __construct(Container $data)
 	{
-		$this->javasSriptData = $javaScriptData;
+		$this->data = $data;
 	}
 
 	/**
-	 * A wrapper aroung JavaScriptData::set()
+	 * A wrapper aroung \NajiDev\Common\JavaScriptData\Container::set()
 	 *
 	 * @param $key
 	 * @param $value
 	 */
 	public function set($key, $value)
 	{
-		$this->javasSriptData->set($key, $value);
+		$this->data->set($key, $value);
 	}
 
 	public function getName()
