@@ -4,22 +4,23 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <services>
+	<parameters>
+		<parameter key="najidev.common.javascriptdata.container.class">NajiDev\Common\JavaScriptData\Container</parameter>
+		<parameter key="najidev.javascriptdata_bundle.templating.helper.javascriptdata.class">NajiDev\JavaScriptDataBundle\Templating\Helper\JavaScriptDataHelper</parameter>
+	</parameters>
 
-        <service id="najidev.common.javascriptdata.container" class="NajiDev\Common\JavaScriptData\Container" />
+	<services>
 
-        <service id="najidev.javascriptdata_bundle.templating.helper.javascriptdata"
-                 class="NajiDev\JavaScriptDataBundle\Templating\Helper\JavaScriptDataHelper">
-            <argument type="service" id="najidev.common.javascriptdata.container" />
-            <tag name="templating.helper" alias="javascript_data" />
-        </service>
+		<service id="najidev.common.javascriptdata.container" class="%najidev.common.javascriptdata.container.class%" />
 
-        <service id="najidev.javascriptdata_bundle.filter_response_listener"
-                 class="NajiDev\JavaScriptDataBundle\EventListener\AddContainerRequestListener">
-            <argument type="service" id="najidev.common.javascriptdata.container" />
-            <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" />
-        </service>
+		<service id="najidev.javascriptdata_bundle.templating.helper.javascriptdata"
+		         class="%najidev.javascriptdata_bundle.templating.helper.javascriptdata.class%">
 
-    </services>
+			<argument type="service" id="najidev.common.javascriptdata.container" />
+			<tag name="templating.helper" alias="javascript_data" />
+
+		</service>
+
+	</services>
 
 </container>

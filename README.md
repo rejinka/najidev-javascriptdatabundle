@@ -44,21 +44,12 @@ helper:
 
 	$view['javascript_data']->set('my.key', 'value');
 
-When the response is rendered, your container gets automatically injected (hidden) to the end of your body, for
-example:
+When it comes to display the data, the helper has another method:
 
-		...
-		<div id="javascript_data" style="display: none">
-			{
-				my : {
-					key : "value"
-				}
-			}
-		</div>
-	</body
+	<?php echo $view['javascript_data']->render(); ?>
 
-You can get this data with the helper.js. Be sure to use this helper, when the body was completely rendered. Jquerys
-ready-event is just perfect for that:
+Just use that simple line in a layout and your data can everywhere be grabbed by the helper.js. Be sure to use the
+helper.js, when the body was completely rendered. Jquerys ready-event is just perfect for that:
 
 	<script>
 		$(document).ready(function()

@@ -17,7 +17,7 @@ class JavaScriptDataHelper extends Helper
 	}
 
 	/**
-	 * A wrapper aroung \NajiDev\Common\JavaScriptData\Container::set()
+	 * A wrapper around \NajiDev\Common\JavaScriptData\Container::set()
 	 *
 	 * @param $key
 	 * @param $value
@@ -25,6 +25,16 @@ class JavaScriptDataHelper extends Helper
 	public function set($key, $value)
 	{
 		$this->data->set($key, $value);
+	}
+
+	/**
+	 * A wrapper around \NajiDev\Common\JavaScriptData\Container::getTransformedData()
+	 */
+	public function render()
+	{
+		return
+			'<div id="javascript_data" style="display: none">' . $this->data->getTransformedData() . '</div></body>'
+			;
 	}
 
 	public function getName()
