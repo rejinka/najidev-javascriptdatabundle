@@ -10,7 +10,7 @@ get php variables to javascript. Take a look on the documentation of najidev/com
 As composer is the standard way of Symfony to handle libraries and bundles, i'll only show the installation with
 composer. In your composer.json add following:
 
-  "require" : {
+	"require" : {
 		"najidev/javascript-data-bundle" : "@dev"
 	}
 
